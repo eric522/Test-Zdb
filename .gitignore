@@ -1,0 +1,7 @@
+venv
+src/db.sqlite3
+src/theZdb/__pycache__
+src/main/__pycache__
+src/main/migrations
+src/zdb/__pycache__
+src/zdb/migrations

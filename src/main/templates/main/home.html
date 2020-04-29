@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="section">
+    <div class="container">
+        <article class="message is-warning">
+            <div class="message-body">
+                <strong>The Zdb</strong> está en desarrollo, es muy probable que puedas encontrar errores o
+                fallos, si encuentras alguno <a href="#">repórtalo</a>.
+            </div>
+        </article>
+        <div class="columns is-vcentered">
+            <div class="column">
+                <h1 class="is-size-1-desktop is-size-3-tablet is-size-3-mobile has-text-centered-mobile">
+                    Bienvenid@ a <span class="has-text-link">Z</span>,
+                </h1>
+                <h2 class="is-size-3-desktop is-size-4-tablet is-size-4-mobile has-text-centered-mobile">
+                    viejos mundos para explorar.
+                </h2>
+                <p class="has-text-centered-mobile">
+                    <a href="#" class="button is-link is-outlined has-margin-top-1">
+                        <span class="icon is-small">
+                            <i class="fas fa-door-open"></i>
+                        </span>
+                        <span>Descubrir</span>
+                    </a>
+                </p>
+            </div>
+            <div class="column">
+                <img src="{% static 'img/dreamer.png' %}" alt="Welcome Image">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
