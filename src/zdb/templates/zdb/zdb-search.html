@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Search section -->
+<section class="section">
+    <div class="container">
+        <fieldset>
+            <form action="{% url 'zdb-zdbsearch' %}" method="get">
+                <div class="field has-addons">
+                    <div class="control has-icons-left is-expanded">
+                        <input class="input is-medium" name="query_search" type="text" placeholder="Buscar en Z">
+                        <span class="icon is-left">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </div>
+                    <div class="control">
+                        <button class="button is-link is-medium">
+                            Buscar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        {% if results %}
+        {% for item in results %}
+        <div class="box">
+            <div class="columns">
+                <div class="column is-one-fifth is-paddingless">
+                    <figure class="image is-3by4">
+                        <img class="has-border-special" src="{{ item.poster }}" alt="Poster Image">
+                    </figure>
+                </div>
+                <div class="column">
+                    <h1 class="title">{{ item.title }}</h1>
+                    <h2 class="subtitle">{{ item.release_date|date:'Y' }}</h2>
+                    <div class="content">
+                        <h4>Preview:</h4>
+                        <p>
+                            {{ item.description|truncatechars:150 }}
+                        </p>
+                    </div>
+                    <p class="has-text-centered-mobile">
+                        <a href="#" class="button is-link is-outlined">
+                            Ver
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <h2 class="is-size-1-desktop is-size-3-tablet is-size-3-mobile has-text-centered">
+            Sin contenido para:
+        </h2>
+        <h2 class="is-size-1-desktop is-size-3-tablet is-size-3-mobile has-text-centered">
+            "{{ query_search }}"
+        </h2>
+        <p class="has-text-centered">
+            <img src="{% static 'img/tree.png' %}" alt="Not Found Image" width="400">
+        </p>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
